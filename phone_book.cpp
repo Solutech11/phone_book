@@ -3,31 +3,45 @@
 
 #include <iostream>
 #include <string>
+#include<cmath>
 using namespace std;
 
 int main() {
 	//std::cout << "Hello World!\n";
 	int as = 1;
 	int gb = 1;
-	int i = 1;
+	int i = 0;
 
-	int phnBook[] = { 2, };
+	double phnBook[] = { 2 };
 
 	while (as == 1)
 	{
-		cout << "\n---------Phonebook--------\n" << "N for new contact \n" << "V for view contact\n" << "E to Exit\n";
+		cout << "\n---------US-Phonebook--------\n" << "N for new contact \n" << "V for view contact\n" << "E to Exit\n";
 		string g;
+		cout << "\ninput:  ";
 		cin >> g;
 
 		if (g == "N" or g == "n")
 		{
-			cout << "Name:  ";
-			int name;
+			//cout << i << endl;
 
-			cin >> name;
+			cout << "(555)  ";
+			double number;
 
-			phnBook[i] = name;
-			i = i + 1;
+			cin >> number;
+
+			int length = log10(number)+1;
+			//cout << length;
+			if (length == 6) {
+				phnBook[i] = number;
+				i++;
+				cout << "\n added succefully\n";
+
+			}else {
+				cout << "\n number too long or short\n";
+			}
+			
+
 			//name="";
 			/*as = as + 1;
 			gb = gb + 1;*/
@@ -35,18 +49,27 @@ int main() {
 		else if (g == "v" or g == "V")
 		{
 			for (int c = 0; c < i; c++) {
-				cout << "\n" << phnBook[c] << endl;
+				cout << "\n"<< c<<". (555)" << phnBook[c] << endl;
 			}
 		}
 		else if (g == "E" or g == "e")
 		{
-			cout << "\n\nAre you sure??\n";
-			string pic =
-				as = 29;
+			cout << "\n\nAre you sure?? (Y or N)\n";
+			string pic;
+			cin >> pic;
+
+			if (pic == "y" or pic == "Y") {
+				as++;
+			}
+			else if(pic=="N" or pic=="n") {
+				cout << "\nok sir\n";
+			}
+
 		}
 
 	}
 
+	return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
